@@ -1,9 +1,10 @@
 # HyprGlass Plugin
 
 CXX ?= g++
-CXXFLAGS = -fPIC -g -O2 -std=c++23
+CXXFLAGS += -fPIC -g -O2 -std=c++23
 LDFLAGS = -shared
 INCLUDES = $(shell pkg-config --cflags hyprland pixman-1 libdrm)
+INCLUDES += $(shell pkg-config --cflags lua5.4)
 LIBS = $(shell pkg-config --libs hyprland)
 
 ifeq ($(basename $(CXX)),g++)
